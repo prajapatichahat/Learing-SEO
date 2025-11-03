@@ -71,9 +71,8 @@ By the end of this roadmap, you’ll be able to:
 ---
 
 ## 🌍 Language  
-🗣️ Mixed - **English + Gujarati**  
+🗣️  **English**  
 Friendly explanations for easy understanding and recall.  
-*(Example: “Keyword Density shu hoy chhe” explained in Gujarati + English meaning.)*
 
 ---
 
