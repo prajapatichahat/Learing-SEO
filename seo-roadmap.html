@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>1-Month SEO Specialization Roadmap — Todo Tracker</title>
+    <style>
+        :root {
+            --bg: #0f1724;
+            --card: #0b1220;
+            --muted: #9aa7bf;
+            --accent: #06b6d4;
+            --glass: rgba(255, 255, 255, 0.03);
+            --radius: 12px;
+            --gap: 14px;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            padding: 28px;
+            background: linear-gradient(180deg, #071027 0%, #081428 60%);
+            color: #e6eef8;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .app {
+            width: 100%;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            border-radius: var(--radius);
+            padding: 18px;
+            box-shadow: 0 6px 18px rgba(3, 10, 18, 0.6);
+            min-height: 520px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .logo {
+            width: 46px;
+            height: 46px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #06b6d4, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #021226;
+            font-size: 18px;
+        }
+
+        h1 {
+            font-size: 16px;
+            margin: 0
+        }
+
+        p.lead {
+            color: var(--muted);
+            margin: 6px 0 16px;
+            font-size: 13px
+        }
+
+        .summary {
+            background: var(--glass);
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .weeks {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .week-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            cursor: pointer;
+            color: var(--muted);
+            transition: all .18s;
+        }
+
+        .week-btn:hover {
+            transform: translateY(-3px)
+        }
+
+        .week-btn.active {
+            background: linear-gradient(90deg, rgba(6, 182, 212, 0.09), rgba(59, 130, 246, 0.04));
+            color: #dff8ff;
+            border-color: rgba(6, 182, 212, 0.18)
+        }
+
+        .controls {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap
+        }
+
+        button.control {
+            padding: 9px 10px;
+            border-radius: 9px;
+            border: none;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--muted);
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        button.control.primary {
+            background: linear-gradient(90deg, var(--accent), #3b82f6);
+            color: #021226;
+            font-weight: 600
+        }
+
+        /* Main panel */
+        .panel {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            padding: 18px;
+            border-radius: var(--radius);
+            box-shadow: 0 8px 30px rgba(3, 10, 18, 0.6);
+            min-height: 520px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px
+        }
+
+        .panel-header h2 {
+            margin: 0;
+            font-size: 18px
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .progress-wrap {
+            margin: 12px 0
+        }
+
+        .progress {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 999px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.02)
+        }
+
+        .progress>i {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), #3b82f6);
+            width: 0%
+        }
+
+        .week-title {
+            font-weight: 700;
+            margin: 6px 0 12px
+        }
+
+        .desc {
+            color: var(--muted);
+            margin-bottom: 12px;
+            font-size: 14px
+        }
+
+        .tasks {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .task-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .task-left {
+            display: flex;
+            justify-content: space-between;
+            gap: 6px;
+            flex: 1
+        }
+
+        label.task {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            cursor: pointer;
+            font-size: 14px;
+            color: #e9f6ff;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            border-radius: 6px;
+            accent-color: var(--accent);
+            transform: translateY(2px)
+        }
+
+        .small {
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .tools {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px
+        }
+
+        .chip {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 6px 8px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--muted);
+            border: 1px solid rgba(255, 255, 255, 0.02)
+        }
+
+        .footer-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+            align-items: center;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            padding: 9px 12px;
+            border-radius: 9px;
+            border: none;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--muted);
+            cursor: pointer;
+            font-size: 13px
+        }
+
+        .btn.positive {
+            background: linear-gradient(90deg, var(--accent), #3b82f6);
+            color: #021226;
+            font-weight: 600
+        }
+
+        .btn.warn {
+            background: #ffb703;
+            color: #021226
+        }
+
+        .right-top {
+            display: flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        .import-file {
+            display: none
+        }
+
+        .summary ol li a {
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* responsive */
+        @media (max-width:920px) {
+            .app {
+                grid-template-columns: 1fr;
+                padding-bottom: 60px
+            }
+
+            .sidebar {
+                order: 1
+            }
+
+            .panel {
+                order: 2
+            }
+            .footer-1 {
+                order: 2
+            }
+            .footer-2 {
+                order: 2
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app" id="app">
+        <aside class="sidebar" aria-label="Roadmap sidebar">
+            <div class="brand">
+                <div class="logo">SEO</div>
+                <div>
+                    <h1>1-Month SEO Roadmap</h1>
+                    <p class="lead">Developer-focused todo tracker — mark tasks as done, track progress.</p>
+                </div>
+            </div>
+
+            <div class="summary" id="summary">
+                <div><strong id="completedCount">0</strong> / <span id="totalCount">0</span> tasks completed</div>
+                <div style="margin-top:8px;color:var(--muted);font-size:13px">Progress: <span id="percentText">0%</span>
+                </div>
+                <div class="progress-wrap" style="margin-top:8px">
+                    <div class="progress" aria-hidden><i id="progressBar"></i></div>
+                </div>
+            </div>
+
+            <div style="font-weight:700;color:#cfeff8;font-size:13px;margin-bottom:6px">Weeks</div>
+            <div class="weeks" id="weeksList" role="tablist" aria-label="Weeks list"></div>
+
+            <div class="controls" style="margin-top:14px">
+                <button class="control primary" id="resetBtn" title="Reset all progress">Reset Progress</button>
+                <button class="control" id="exportBtn" title="Export progress as JSON">Export</button>
+                <label class="control" style="display:inline-flex;align-items:center;gap:8px;cursor:pointer">
+                    <input type="file" id="importFile" class="import-file" accept=".json" />
+                    <span id="importLabel">Import</span>
+                </label>
+            </div>
+
+            <div style="font-weight:700;color:#cfeff8;font-size:13px;margin-top:15px;margin-bottom: 10px;">Best Free
+                Resources</div>
+            <div class="summary">
+                <ol style="padding-left: 10px;margin: 0;">
+                    <li><a href="https://developers.google.com/search/docs" target="_blank">Google Search Central <svg
+                                width="15" height="15" viewBox="0 0 16 16" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg" data-rtl-flip=""
+                                class="block h-[0.75em] w-[0.75em] stroke-current stroke-[0.75]">
+                                <path
+                                    d="M14.3349 13.3301V6.60645L5.47065 15.4707C5.21095 15.7304 4.78895 15.7304 4.52925 15.4707C4.26955 15.211 4.26955 14.789 4.52925 14.5293L13.3935 5.66504H6.66011C6.29284 5.66504 5.99507 5.36727 5.99507 5C5.99507 4.63273 6.29284 4.33496 6.66011 4.33496H14.9999L15.1337 4.34863C15.4369 4.41057 15.665 4.67857 15.665 5V13.3301C15.6649 13.6973 15.3672 13.9951 14.9999 13.9951C14.6327 13.9951 14.335 13.6973 14.3349 13.3301Z">
+                                </path>
+                            </svg></a></li>
+                    <li><a href="https://ahrefs.com/blog" target="_blank">Ahrefs Blog <svg width="15" height="15"
+                                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                                data-rtl-flip="" class="block h-[0.75em] w-[0.75em] stroke-current stroke-[0.75]">
+                                <path
+                                    d="M14.3349 13.3301V6.60645L5.47065 15.4707C5.21095 15.7304 4.78895 15.7304 4.52925 15.4707C4.26955 15.211 4.26955 14.789 4.52925 14.5293L13.3935 5.66504H6.66011C6.29284 5.66504 5.99507 5.36727 5.99507 5C5.99507 4.63273 6.29284 4.33496 6.66011 4.33496H14.9999L15.1337 4.34863C15.4369 4.41057 15.665 4.67857 15.665 5V13.3301C15.6649 13.6973 15.3672 13.9951 14.9999 13.9951C14.6327 13.9951 14.335 13.6973 14.3349 13.3301Z">
+                                </path>
+                            </svg></a></li>
+                    <li><a href="https://neilpatel.com/blog" target="_blank">Neil Patel Blog <svg width="15" height="15"
+                                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                                data-rtl-flip="" class="block h-[0.75em] w-[0.75em] stroke-current stroke-[0.75]">
+                                <path
+                                    d="M14.3349 13.3301V6.60645L5.47065 15.4707C5.21095 15.7304 4.78895 15.7304 4.52925 15.4707C4.26955 15.211 4.26955 14.789 4.52925 14.5293L13.3935 5.66504H6.66011C6.29284 5.66504 5.99507 5.36727 5.99507 5C5.99507 4.63273 6.29284 4.33496 6.66011 4.33496H14.9999L15.1337 4.34863C15.4369 4.41057 15.665 4.67857 15.665 5V13.3301C15.6649 13.6973 15.3672 13.9951 14.9999 13.9951C14.6327 13.9951 14.335 13.6973 14.3349 13.3301Z">
+                                </path>
+                            </svg></a></li>
+                    <li><a href="https://www.youtube.com/@SEMrush" target="_blank">YouTube: Semrush Academy <svg
+                                width="15" height="15" viewBox="0 0 16 16" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg" data-rtl-flip=""
+                                class="block h-[0.75em] w-[0.75em] stroke-current stroke-[0.75]">
+                                <path
+                                    d="M14.3349 13.3301V6.60645L5.47065 15.4707C5.21095 15.7304 4.78895 15.7304 4.52925 15.4707C4.26955 15.211 4.26955 14.789 4.52925 14.5293L13.3935 5.66504H6.66011C6.29284 5.66504 5.99507 5.36727 5.99507 5C5.99507 4.63273 6.29284 4.33496 6.66011 4.33496H14.9999L15.1337 4.34863C15.4369 4.41057 15.665 4.67857 15.665 5V13.3301C15.6649 13.6973 15.3672 13.9951 14.9999 13.9951C14.6327 13.9951 14.335 13.6973 14.3349 13.3301Z">
+                                </path>
+                            </svg></a></li>
+                </ol>
+            </div>
+            <div style="margin-top:16px;color:var(--muted);font-size:13px">
+                Tip: Use this to follow the 4-week roadmap. Changes are saved locally on this browser.
+            </div>
+        </aside>
+
+        <main class="panel" id="mainPanel" role="main">
+            <div class="panel-header">
+                <div>
+                    <h2 id="mainTitle">Week 1 — SEO Fundamentals & Tools Setup</h2>
+                    <div class="meta" id="mainMeta">Goal: Core concept samajvu ane tools setup karva.</div>
+                </div>
+                <div class="right-top">
+                    <button class="btn" id="printBtn" title="Print this week's tasks">Print</button>
+                    <button class="btn positive" id="markWeekBtn">Mark week complete</button>
+                </div>
+            </div>
+
+            <div class="week-title" id="weekHeadline">Topics & Practical Tasks</div>
+            <div class="desc" id="weekDesc">Loading...</div>
+
+            <div class="tasks" id="tasks"></div>
+
+            <div class="footer-actions">
+                <button class="btn" id="prevWeek">← Previous Week</button>
+                <button class="btn" id="nextWeek">Next Week →</button>
+                <div style="flex:1"></div>
+                <button class="btn warn" id="clearWeekBtn">Clear this week</button>
+            </div>
+        </main>
+        <footer class="footer-1" style="display: flex;justify-content: space-between;width: 100%;">
+            <p>&copy; 2025 <a href="https://github.com/prajapatichahat" style="color:#e9f6ff ;text-decoration: 
+ none;"> SEO-Roadmap </a>. All rights reserved.</p>
+
+        </footer>
+        <footer class="footer-2" style="display: flex;justify-content:end">
+            <p>Devloped By <a href="https://github.com/prajapatichahat" style="color:#e9f6ff ;text-decoration: 
+ none;"> MR.Chahat Prajapati</a></p>
+
+        </footer>
+    </div>
+
+    <script>
+        /**************************************************************************
+         * Embedded roadmap JSON (based on user's provided content)
+         **************************************************************************/
+        const roadmap = {
+            "title": "1 Month SEO Specialization Roadmap (Developer-Focused)",
+            "weeks": [
+                {
+                    "id": "week-1",
+                    "title": "WEEK 1 – SEO Fundamentals & Tools Setup",
+                    "goal": "Core concept samajvu ane tools setup karva.",
+                    "topics": [
+                        "What is SEO, Types (On-page, Off-page, Technical)",
+                        "How search engines work (Crawling, Indexing, Ranking)",
+                        "Keyword Research Basics",
+                        "Meta Title, Description, H1-H6 Tags",
+                        "Alt Text, URLs, Canonical Tags"
+                    ],
+                    "practical": [
+                        "Ek demo website lo (tame React ya simple HTML ma banaavi shako).",
+                        "Google Keyword Planner + Ubersuggest thi keywords find karo.",
+                        "Meta title & description manually add karo.",
+                        "SEO checker (like seositecheckup.com) thi test karo."
+                    ],
+                    "tools": ["Google Keyword Planner", "Ubersuggest", "Seositecheckup.com", "MozBar (Chrome extension)"]
+                },
+                {
+                    "id": "week-2",
+                    "title": "WEEK 2 – On-Page SEO & Content Optimization",
+                    "goal": "Web pages ne keyword-wise optimize karva sikhvu.",
+                    "topics": [
+                        "Keyword placement & density",
+                        "Internal & external linking",
+                        "Image optimization (alt, size)",
+                        "Schema markup basics",
+                        "Content readability & structure"
+                    ],
+                    "practical": [
+                        "Ek blog article banao (WordPress / static HTML / React page).",
+                        "1 main keyword + 2 supporting keywords use karo.",
+                        "Internal link add karo (dusri page ni link).",
+                        "Yoast SEO (if WordPress) ya manual SEO check karo."
+                    ],
+                    "tools": ["Yoast / RankMath plugin", "Grammarly / Hemingway", "Google SERP Simulator"]
+                },
+                {
+                    "id": "week-3",
+                    "title": "WEEK 3 – Technical SEO & Performance",
+                    "goal": "Website technically perfect banaavi ne Google-friendly banavvi.",
+                    "topics": [
+                        "Sitemap.xml & Robots.txt",
+                        "Page speed optimization",
+                        "Mobile-friendly testing",
+                        "Core Web Vitals",
+                        "HTTPS, redirects (301, 302)",
+                        "Structured data (JSON-LD schema)"
+                    ],
+                    "practical": [
+                        "Tamari site no sitemap.xml banao (manually or generator).",
+                        "Robots.txt ma rules add karo.",
+                        "PageSpeed Insights thi score check karo & fix karo.",
+                        "Lighthouse audit run karo.",
+                        "Structured data generator thi schema test karo."
+                    ],
+                    "tools": ["Google Search Console", "Google PageSpeed Insights", "GTMetrix", "Structured Data Testing Tool"]
+                },
+                {
+                    "id": "week-4",
+                    "title": "WEEK 4 – Off-Page SEO, Analytics & Real Project Practice",
+                    "goal": "Ranking build karvi & result track karva shikhvu.",
+                    "topics": [
+                        "Backlinks: what, how & from where",
+                        "Guest posting, social bookmarking",
+                        "Google Analytics & Search Console setup",
+                        "Tracking keywords, CTR & impressions",
+                        "SEO audit process & reporting"
+                    ],
+                    "practical": [
+                        "Free backlink submit karo (forums, blog comments, social profiles).",
+                        "Google Analytics + Search Console integrate karo.",
+                        "SEO audit karo tamari site no (Ahrefs trial ya free checker thi).",
+                        "Weekly report banao — keyword rank, traffic graph."
+                    ],
+                    "tools": ["Google Analytics", "Google Search Console", "Ahrefs (trial) / Semrush", "Backlink Checker (Neil Patel / Small SEO Tools)"]
+                }
+            ],
+            "bonus": {
+                "title": "Practical Mastery Project (after 1 month)",
+                "items": [
+                    "Complete SEO audit karo",
+                    "Keyword research karo",
+                    "3 pages fully optimize karo",
+                    "Sitemap + robots.txt set karo",
+                    "Search Console ma submit karo",
+                    "1–2 backlinks generate karo",
+                    "2 week ma ranking track karo"
+                ]
+            }
+        };
+
+        /**************************************************************************
+         * App: state, storage, rendering
+         **************************************************************************/
+        const STORAGE_KEY = 'seoRoadmapProgress_v1';
+        const appState = {
+            roadmap,
+            weekIndex: 0,
+            // progress: object: { weekId: {taskKey: true,...}, ...}
+            progress: loadProgress()
+        };
+
+        // build list of all tasks (flat) for counts
+        function getAllTaskKeys() {
+            const keys = [];
+            roadmap.weeks.forEach((w, wi) => {
+                // topics
+                w.topics.forEach((t, i) => keys.push(`${w.id}::topic::${i}`));
+                // practical
+                w.practical.forEach((p, i) => keys.push(`${w.id}::practical::${i}`));
+                // tools as tasks too (so user can tick tools checked)
+                w.tools.forEach((q, i) => keys.push(`${w.id}::tool::${i}`));
+            });
+            return keys;
+        }
+
+        function loadProgress() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (!raw) return {};
+                return JSON.parse(raw);
+            } catch (e) { console.warn('Failed loading progress', e); return {} }
+        }
+        function saveProgress() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(appState.progress));
+                updateSummary();
+            } catch (e) { console.warn('Failed saving progress', e) }
+        }
+
+
+
+        /**************************************************************************
+         * Render UI pieces
+         **************************************************************************/
+        const weeksListEl = document.getElementById('weeksList');
+        const mainTitle = document.getElementById('mainTitle');
+        const mainMeta = document.getElementById('mainMeta');
+        const weekDesc = document.getElementById('weekDesc');
+        const tasksEl = document.getElementById('tasks');
+        const progressBar = document.getElementById('progressBar');
+        const percentText = document.getElementById('percentText');
+        const completedCountEl = document.getElementById('completedCount');
+        const totalCountEl = document.getElementById('totalCount');
+
+        function renderWeeks() {
+            weeksListEl.innerHTML = '';
+            roadmap.weeks.forEach((w, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'week-btn' + (idx === appState.weekIndex ? ' active' : '');
+                btn.setAttribute('role', 'tab');
+                btn.innerHTML = `<div style="text-align:left">
+                          <div style="font-weight:700">${w.title.replace('WEEK ', '')}</div>
+                          <div style="font-size:13px;color:var(--muted);margin-top:4px">${w.goal}</div>
+                         </div>
+                         <div style="text-align:right;font-size:13px;color:var(--muted)">${getWeekCompletionText(w.id)}</div>`;
+                btn.onclick = () => { appState.weekIndex = idx; render(); };
+                weeksListEl.appendChild(btn);
+            });
+        }
+
+
+        function getWeekCompletionText(weekId) {
+            const progress = appState.progress[weekId] || {};
+            const total = getWeekTotalTasks(weekId);
+
+            // ✅ count only real tasks (ignore notes)
+            const done = Object.keys(progress)
+                .filter(k => progress[k] && !k.endsWith("::note"))
+                .length;
+
+            return `${done}/${total}`;
+        }
+
+        function getWeekTotalTasks(weekId) {
+            const w = roadmap.weeks.find(x => x.id === weekId);
+            if (!w) return 0;
+            return w.topics.length + w.practical.length + w.tools.length;
+        }
+
+        function renderMainWeek() {
+            const w = roadmap.weeks[appState.weekIndex];
+            mainTitle.textContent = `${w.title}`;
+            mainMeta.textContent = `Goal: ${w.goal}`;
+            let desc = `<strong>Topics:</strong> ${w.topics.join(' • ')}<br><br>`;
+            desc += `<strong>Practical Tasks:</strong> ${w.practical.join(' • ')}<br><br>`;
+            desc += `<strong>Tools:</strong> ${w.tools.join(', ')}`;
+            weekDesc.innerHTML = desc;
+
+            // tasks - create checklist in order: topics, practical, tools
+            tasksEl.innerHTML = '';
+            const weekProgress = appState.progress[w.id] || {};
+
+
+
+            // helper to create task element (FIXED ✅)
+            function mkTaskRow(kind, idx, text) {
+                const w = roadmap.weeks[appState.weekIndex];
+                const weekProgress = appState.progress[w.id] || {};
+                const key = `${w.id}::${kind}::${idx}`;
+                const noteKey = key + "::note";
+                const checked = !!weekProgress[key];
+
+                // main card
+                const card = document.createElement('div');
+                card.className = 'task-card';
+
+                // left section
+                const left = document.createElement('div');
+                left.className = 'task-left';
+
+                const label = document.createElement('label');
+                label.className = 'task';
+
+                const cb = document.createElement('input');
+                cb.type = 'checkbox';
+                cb.checked = checked;
+                cb.addEventListener('change', e => {
+                    // ✅ Only checkbox changes affect task completion
+                    toggleTask(w.id, key, e.target.checked);
+                });
+
+                const titleWrap = document.createElement('div');
+                const title = document.createElement('div');
+                title.textContent = text;
+                const small = document.createElement('div');
+                small.className = 'small';
+                small.textContent = (kind === 'tool' ? 'Tool / Resource' : (kind === 'practical' ? 'Practical Task' : 'Topic'));
+                titleWrap.appendChild(title);
+                titleWrap.appendChild(small);
+                label.appendChild(cb);
+                label.appendChild(titleWrap);
+                left.appendChild(label);
+
+                /* -----------------------------
+                   📝 Add Note Section (no impact on progress)
+                ------------------------------ */
+                const noteDiv = document.createElement('div');
+                // noteDiv.style.marginTop = '6px';
+
+                const noteBtn = document.createElement('button');
+                noteBtn.textContent = '📝 Add Note';
+                noteBtn.className = 'btn';
+                noteBtn.style.fontSize = '12px';
+                noteBtn.addEventListener('click', () => {
+                    noteArea.style.display = (noteArea.style.display === 'block') ? 'none' : 'block';
+                });
+
+                const noteArea = document.createElement('div');
+                noteArea.style.display = 'none';
+                noteArea.style.marginTop = '6px';
+
+                const textarea = document.createElement('textarea');
+                textarea.rows = 3;
+                textarea.style.width = '100%';
+                textarea.style.borderRadius = '6px';
+                textarea.style.padding = '6px';
+                textarea.style.background = 'rgba(255,255,255,0.05)';
+                textarea.style.color = '#e6eef8';
+                textarea.placeholder = 'Write your note here...';
+                textarea.value = weekProgress[noteKey] || '';
+
+                const saveBtn = document.createElement('button');
+                saveBtn.textContent = '💾 Save Note';
+                saveBtn.className = 'btn positive';
+                saveBtn.style.marginTop = '6px';
+                saveBtn.addEventListener('click', () => {
+                    // ✅ Save note without affecting progress
+                    if (!appState.progress[w.id]) appState.progress[w.id] = {};
+                    appState.progress[w.id][noteKey] = textarea.value;
+                    saveProgress();
+                    alert('Note saved!');
+                });
+
+                const clearBtn = document.createElement('button');
+                clearBtn.textContent = '🗑 Clear Note';
+                clearBtn.className = 'btn warn';
+                clearBtn.style.marginTop = '6px';
+                clearBtn.addEventListener('click', () => {
+                    if (appState.progress[w.id]) delete appState.progress[w.id][noteKey];
+                    textarea.value = '';
+                    saveProgress();
+                });
+
+                noteArea.appendChild(textarea);
+                noteArea.appendChild(saveBtn);
+                noteArea.appendChild(clearBtn);
+                noteDiv.appendChild(noteBtn);
+                noteDiv.appendChild(noteArea);
+
+                left.appendChild(noteDiv);
+
+                // right section
+                const right = document.createElement('div');
+                right.style.textAlign = 'right';
+                const quick = document.createElement('div');
+                quick.className = 'small';
+                quick.style.color = 'var(--muted)';
+                quick.textContent = ' ';
+                right.appendChild(quick);
+
+                card.appendChild(left);
+                card.appendChild(right);
+                return card;
+            }
+
+            // topics
+            w.topics.forEach((t, i) => tasksEl.appendChild(mkTaskRow('topic', i, t)));
+            // practical
+            w.practical.forEach((p, i) => tasksEl.appendChild(mkTaskRow('practical', i, p)));
+            // tools
+            w.tools.forEach((t, i) => {
+                const el = mkTaskRow('tool', i, t);
+                // add chip for tools
+                const chipDiv = document.createElement('div'); chipDiv.className = 'tools';
+                chipDiv.innerHTML = `<span class="chip">${t}</span>`;
+                el.querySelector('.task-left').appendChild(chipDiv);
+                tasksEl.appendChild(el);
+            });
+        }
+
+        function toggleTask(weekId, key, checked) {
+            if (!appState.progress[weekId]) appState.progress[weekId] = {};
+            appState.progress[weekId][key] = checked;
+            saveProgress();
+            render();
+        }
+
+
+
+        function updateSummary() {
+            const allKeys = getAllTaskKeys();
+            const total = allKeys.length;
+            let done = 0;
+
+            for (const weekId in appState.progress) {
+                for (const k in appState.progress[weekId]) {
+                    // ✅ ignore note keys in total progress
+                    if (appState.progress[weekId][k] && !k.endsWith("::note")) {
+                        done++;
+                    }
+                }
+            }
+
+            const pct = total === 0 ? 0 : Math.round((done / total) * 100);
+            completedCountEl.textContent = done;
+            totalCountEl.textContent = total;
+            percentText.textContent = pct + '%';
+            progressBar.style.width = pct + '%';
+        }
+
+
+
+        function render() {
+            renderWeeks();
+            renderMainWeek();
+            updateSummary();
+        }
+
+
+        /**************************************************************************
+         * Controls: next/prev, mark week complete, reset, export/import, clear week
+         **************************************************************************/
+        document.getElementById('nextWeek').addEventListener('click', () => {
+            appState.weekIndex = Math.min(roadmap.weeks.length - 1, appState.weekIndex + 1);
+            render();
+        });
+        document.getElementById('prevWeek').addEventListener('click', () => {
+            appState.weekIndex = Math.max(0, appState.weekIndex - 1);
+            render();
+        });
+
+        document.getElementById('markWeekBtn').addEventListener('click', () => {
+            const w = roadmap.weeks[appState.weekIndex];
+            if (!appState.progress[w.id]) appState.progress[w.id] = {};
+            // mark all tasks true
+            const total = getWeekTotalTasks(w.id);
+            // set for topics
+            w.topics.forEach((_, i) => appState.progress[w.id][`${w.id}::topic::${i}`] = true);
+            w.practical.forEach((_, i) => appState.progress[w.id][`${w.id}::practical::${i}`] = true);
+            w.tools.forEach((_, i) => appState.progress[w.id][`${w.id}::tool::${i}`] = true);
+            saveProgress();
+            render();
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            if (!confirm('Reset ALL progress? This will clear local saved data.')) return;
+            localStorage.removeItem(STORAGE_KEY);
+            appState.progress = {};
+            render();
+        });
+
+        document.getElementById('clearWeekBtn').addEventListener('click', () => {
+            const w = roadmap.weeks[appState.weekIndex];
+            if (!confirm(`Clear progress for ${w.title}?`)) return;
+            delete appState.progress[w.id];
+            saveProgress();
+            render();
+        });
+
+        // export
+        document.getElementById('exportBtn').addEventListener('click', () => {
+            const data = {
+                roadmapTitle: roadmap.title,
+                progress: appState.progress,
+                exportedAt: new Date().toISOString()
+            };
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'seo-roadmap-progress.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        // import
+        const importFile = document.getElementById('importFile');
+        document.getElementById('importLabel').addEventListener('click', () => importFile.click());
+        importFile.addEventListener('change', (ev) => {
+            const f = ev.target.files[0];
+            if (!f) return;
+            const reader = new FileReader();
+            reader.onload = e => {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data && data.progress) {
+                        appState.progress = data.progress;
+                        saveProgress();
+                        render();
+                        alert('Progress imported successfully.');
+                    } else {
+                        alert('Invalid file: no progress found.');
+                    }
+                } catch (err) { alert('Invalid JSON file.'); }
+            };
+            reader.readAsText(f);
+        });
+
+        // print current week
+        document.getElementById('printBtn').addEventListener('click', () => {
+            const w = roadmap.weeks[appState.weekIndex];
+            const popup = window.open('', '_blank', 'width=800,height=900');
+            const html = `
+        <html><head><title>Print - ${w.title}</title>
+        <style>body{font-family:Arial,Helvetica,sans-serif;padding:20px;color:#111}h1{font-size:18px}li{margin:6px 0}</style>
+        </head><body>
+        <h1>${w.title}</h1>
+        <p><strong>Goal:</strong> ${w.goal}</p>
+        <h3>Topics</h3><ul>${w.topics.map(t => `<li>${t}</li>`).join('')}</ul>
+        <h3>Practical Tasks</h3><ul>${w.practical.map(t => `<li>${t}</li>`).join('')}</ul>
+        <h3>Tools</h3><ul>${w.tools.map(t => `<li>${t}</li>`).join('')}</ul>
+        </body></html>`;
+            popup.document.write(html);
+            popup.document.close();
+            popup.focus();
+            popup.print();
+        });
+
+        /**************************************************************************
+         * Init
+         **************************************************************************/
+        render();
+
+        // small helper: autos-save when user leaves
+        window.addEventListener('beforeunload', saveProgress);
+    </script>
+</body>
+
+</html>
