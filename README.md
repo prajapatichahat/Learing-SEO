@@ -96,7 +96,7 @@ Friendly explanations for easy understanding and recall.
 3. Mark tasks as complete ✅.  
 4. Add your personal notes 📝 beside each learning.  
 5. Track progress visually through the progress bar 📊.  
-6. Revisit tasks anytime — your progress stays saved locally.  
+6. Revisit tasks anytime - your progress stays saved locally.  
 
 ---
 
@@ -109,7 +109,7 @@ Friendly explanations for easy understanding and recall.
 
 ## 💬 Final Note
 
-> “SEO is not just about ranking — it’s about understanding how people and search engines think.”  
+> “SEO is not just about ranking - it’s about understanding how people and search engines think.”  
 > Keep learning, experimenting, and improving every day 🚀  
 
 ---
