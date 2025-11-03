@@ -4,7 +4,7 @@
 This repository contains a **1-Month Full SEO Learning Roadmap** designed especially for developers who want to master **Search Engine Optimization** and become job-ready within a month.  
 It combines **concept learning**, **hands-on tasks**, **progress tracking**, and **personal notes** - all in a single interactive interface.
 
-💡 *Goal:* Learn SEO practically with live tasks, tools, and analysis. By the end of 30 days, you’ll be ready to optimize any website — whether built with React, Laravel, PHP, or WordPress.
+💡 *Goal:* Learn SEO practically with live tasks, tools, and analysis. By the end of 30 days, you’ll be ready to optimize any website - whether built with React, Laravel, PHP, or WordPress.
 
 ---
 
@@ -55,7 +55,7 @@ Each topic has:
 - ✅ **Checkbox** (mark when complete)
 - 📊 **Progress Bar** (auto updates based on completed tasks)
 
-💡 You can take notes right beside each topic while studying — just like a personal SEO learning tracker.
+💡 You can take notes right beside each topic while studying - just like a personal SEO learning tracker.
 
 ---
 
@@ -71,7 +71,7 @@ By the end of this roadmap, you’ll be able to:
 ---
 
 ## 🌍 Language  
-🗣️ Mixed — **English + Gujarati**  
+🗣️ Mixed - **English + Gujarati**  
 Friendly explanations for easy understanding and recall.  
 *(Example: “Keyword Density shu hoy chhe” explained in Gujarati + English meaning.)*
 
