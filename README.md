@@ -79,7 +79,7 @@ Friendly explanations for easy understanding and recall.
 
 ## 👨‍💻 Developer Info  
 **Developed By:** [MR. Chahat Prajapati](https://github.com/prajapatichahat)  
-**Repository:** [SEO-Roadmap](https://github.com/prajapatichahat)
+**Website:** [SEO-Roadmap](https://github.com/prajapatichahat)
 
 ---
 
