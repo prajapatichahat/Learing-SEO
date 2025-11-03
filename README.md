@@ -76,11 +76,9 @@ Friendly explanations for easy understanding and recall.
 
 ---
 
-## 👨‍💻 Developer Info  
-**Developed By:** [MR. Chahat Prajapati](https://github.com/prajapatichahat)  
-**Website:** [SEO-Roadmap](https://seo-roadmap.netlify.app)
 
----
+
+
 
 ## 🧾 Additional Free Learning Resources  
 
@@ -90,4 +88,33 @@ Friendly explanations for easy understanding and recall.
 - [YouTube – SEMrush Academy](https://www.youtube.com/@SEMrush)
 
 ---
+
+## ⭐ How to Use
+
+1. Open the roadmap in your browser.  
+2. Explore topics week by week.  
+3. Mark tasks as complete ✅.  
+4. Add your personal notes 📝 beside each learning.  
+5. Track progress visually through the progress bar 📊.  
+6. Revisit tasks anytime — your progress stays saved locally.  
+
+---
+
+## 👨‍💻 Developer Info  
+**Developed By:** [MR. Chahat Prajapati](https://github.com/prajapatichahat)  
+**Website:** [SEO-Roadmap](https://seo-roadmap.netlify.app)
+
+---
+
+
+## 💬 Final Note
+
+> “SEO is not just about ranking — it’s about understanding how people and search engines think.”  
+> Keep learning, experimenting, and improving every day 🚀  
+
+---
+
+© 2025 **SEO-Roadmap**  
+**Built with ❤️ by MR. Chahat Prajapati**
+
 
