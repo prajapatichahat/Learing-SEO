@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://seo-roadmap.netlify.app/sitemap.xml
+
+# SEO-Roadmap site robots file
+# This file tells search engines to index all pages
+# and provides sitemap location for better crawling
+``
