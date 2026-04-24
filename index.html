@@ -982,7 +982,107 @@
         // small helper: autos-save when user leaves
         window.addEventListener('beforeunload', saveProgress);
     </script>
+<code>
 
+    import { useEffect, useState } from "react";
+import axios from "axios";
+
+const API = "https://69ead72715c7e2d5126a1ada.mockapi.io/product/product";
+
+function Product() {
+  const [products, setProducts] = useState([]);
+  const [form, setForm] = useState({ name: "", price: "", image: "" });
+  const [editId, setEditId] = useState(null);
+
+  // 🔹 GET (data load)
+  const getProducts = async () => {
+    const res = await axios.get(API);
+    setProducts(res.data);
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  // 🔹 ADD / UPDATE
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (editId) {
+      // UPDATE
+      await axios.put(`${API}/${editId}`, form);
+    } else {
+      // ADD
+      await axios.post(API, form);
+    }
+
+    setForm({ name: "", price: "", image: "" });
+    setEditId(null);
+    getProducts();
+  };
+
+  // 🔹 DELETE
+  const handleDelete = async (id) => {
+    await axios.delete(`${API}/${id}`);
+    getProducts();
+  };
+
+  // 🔹 EDIT
+  const handleEdit = (item) => {
+    setForm(item);
+    setEditId(item.id);
+  };
+
+  return (
+    <div>
+      <h2>Product CRUD 🔥</h2>
+
+      {/* FORM */}
+      <form onSubmit={handleSubmit}>
+        <input
+          placeholder="Name"
+          value={form.name}
+          onChange={(e) =>
+            setForm({ ...form, name: e.target.value })
+          }
+        />
+
+        <input
+          placeholder="Price"
+          value={form.price}
+          onChange={(e) =>
+            setForm({ ...form, price: e.target.value })
+          }
+        />
+
+        <input
+          placeholder="Image URL"
+          value={form.image}
+          onChange={(e) =>
+            setForm({ ...form, image: e.target.value })
+          }
+        />
+
+        <button>{editId ? "Update" : "Add"}</button>
+      </form>
+
+      {/* LIST */}
+      {products.map((p) => (
+        <div key={p.id}>
+          <img src={p.image} width="100" />
+          <h3>{p.name}</h3>
+          <p>₹{p.price}</p>
+
+          <button onClick={() => handleEdit(p)}>Edit</button>
+          <button onClick={() => handleDelete(p.id)}>Delete</button>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default Product;
+</code>
 </body>
 
 </html>
