@@ -1082,6 +1082,105 @@ function Product() {
 }
 
 export default Product;
+
+    
+    import React from 'react'
+import Product from './Product'
+
+function Home({setIsLogin}) {
+
+  const HandleLogout=()=>{
+    localStorage.removeItem("isLogin")
+    setIsLogin(false)
+  }
+
+  return (
+    <div>
+        <h1>welcome to home, <br/> you'r logged in...!</h1>
+        <Product/>
+        <button onClick={HandleLogout}>Logout</button>
+    </div>
+  )
+}
+
+export default Home;
+
+import { useEffect, useState } from 'react'
+import Home from './Home';
+import Login from './Login';
+
+
+function App() {
+  const [isLogin , setIsLogin] = useState(false);
+
+  useEffect(()=>{
+    const storedLogin = localStorage.getItem("isLogin");
+  if(storedLogin === "true"){
+    setIsLogin(true);
+  }
+  },[]);
+
+  return (
+    <>
+    {isLogin ? <Home setIsLogin={setIsLogin}/> : <Login setIsLogin={setIsLogin}/>}
+    </>
+  )
+}
+
+export default App;
+import React, { useState } from 'react'
+import { users } from './Data'; 
+
+function Login({setIsLogin}) {
+    const [email,setEmail] = useState("");
+    const [password,setPassword] = useState("");
+    const [error,setError] = useState("");
+
+    const HandleLogin= (e) =>{
+e.preventDefault();
+
+const user = users.find(
+    (u) => u.email === email && u.password === password
+)
+
+if(user){
+  setIsLogin(true)
+  setError("")
+  localStorage.setItem("isLogin","true")
+}else{
+    setError("invalid user data")
+}
+    }
+
+
+
+  return (
+    <div>
+    <form action="" onSubmit={HandleLogin}>
+        <input type="email" placeholder='email' value={email} onChange={(e)=>setEmail(e.target.value)}/>
+        <input type="password" placeholder='password' value={password} onChange={(e)=> setPassword(e.target.value)}/>
+        <button type='submit'>login</button>
+        <p>{error}</p>
+    </form>
+    </div>
+  )
+}
+
+export default Login
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </code>
 </body>
 
